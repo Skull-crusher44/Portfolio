@@ -1,12 +1,12 @@
 ---
-
-Developer Portfolio
-This Developer Portfolio template allows you to create your very own personalized portfolio website! It's designed to be user-friendly and easily customizable, making it perfect for both developers and freelancers.
-
+title: "Developer Portfolio"
+description: "This Developer Portfolio template allows you to create your very own personalized portfolio website! It's designed to be user-friendly and easily customizable, making it perfect for both developers[...]"
 ---
 
+# Developer Portfolio
+This Developer Portfolio template allows you to create your very own personalized portfolio website! It's designed to be user-friendly and easily customizable, making it perfect for both developers and designers.
 
-![](./public/image/screen.png)
+![Screenshot](./public/image/screen.png)
 
 ## View live preview [here]().
 
@@ -47,7 +47,6 @@ This Developer Portfolio template allows you to create your very own personalize
 ```bash
 node --version
 git --version
-```
 
 ---
 
