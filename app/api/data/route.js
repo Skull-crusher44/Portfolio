@@ -1,11 +1,17 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request) {
+export const dynamic = 'force-static';
+
+export async function GET() {
   return NextResponse.json({
     success: true,
-    message: 'hle!',
+    message: 'hello!',
     data: {
       message: 'Message and email sent successfully!',
     }
   }, { status: 200 });
-};
+}
+
+export async function generateStaticParams() {
+  return [];
+}
