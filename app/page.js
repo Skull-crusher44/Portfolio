@@ -16,7 +16,7 @@ export default function Home() {
       <Skills />
       <CodingProfiles />
       <Education />
-      {/* <Experience /> */}
+      <Experience />
       <ContactSection />
     </div>
   );
