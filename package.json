@@ -3,6 +3,7 @@
   "description": "Portfolio of Pankaj Ahuja",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Skull-crusher44.github.io/Portfolio/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
