@@ -15,8 +15,8 @@ export default function Home() {
       <Projects />
       <Skills />
       <CodingProfiles />
-      <Experience />
-      {/* <Education /> */}
+      <Education />
+      {/* <Experience /> */}
       <ContactSection />
     </div>
   );
