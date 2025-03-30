@@ -1,35 +1,26 @@
-"use client";
+"use client"; // ✅ Must be at the top!
 
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa6";
-
-const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // ✅ Prevents SSR error
-
     const handleScroll = () => {
-      setIsVisible(window.scrollY > SCROLL_THRESHOLD);
+      setIsVisible(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll); // ✅ Correct cleanup
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const onClickBtn = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <button
-      className={`fixed bottom-8 right-6 z-50 flex items-center rounded-full bg-gradient-to-r from-pink-500 to-violet-600 p-4 hover:text-xl transition-all duration-300 ease-out ${
-        isVisible ? "block" : "hidden"
-      }`}
-      onClick={onClickBtn}
+      className={`fixed bottom-8 right-6 z-50 p-4 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      } transition-opacity duration-300`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       <FaArrowUp />
     </button>
