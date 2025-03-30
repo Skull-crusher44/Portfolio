@@ -13,6 +13,9 @@ const GlowCard = ({ children, identifier }) => {
   };
 
   useEffect(() => {
+    // ✅ Ensure this only runs on the client
+    if (typeof window === "undefined") return;
+
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
