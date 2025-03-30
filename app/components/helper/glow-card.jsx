@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const GlowCard = ({ children, identifier }) => {
   const containerRef = useRef(null);
-  const cardRef = useRef(null);
+  const cardRefs = useRef([]);
 
   const CONFIG = {
     proximity: 40,
@@ -16,61 +16,53 @@ const GlowCard = ({ children, identifier }) => {
   };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!containerRef.current) return;
 
-    const CONTAINER = containerRef.current;
-    const CARD = cardRef.current;
+    const cards = cardRefs.current;
+    if (!cards.length) return;
 
-    if (!CONTAINER || !CARD) return;
+    const handlePointerMove = (event) => {
+      cards.forEach((card) => {
+        if (!card) return;
 
-    const UPDATE = (event) => {
-      const CARD_BOUNDS = CARD.getBoundingClientRect();
-      const CARD_CENTER = [
-        CARD_BOUNDS.left + CARD_BOUNDS.width * 0.5,
-        CARD_BOUNDS.top + CARD_BOUNDS.height * 0.5,
-      ];
+        const cardBounds = card.getBoundingClientRect();
+        const cardCenter = [
+          cardBounds.left + cardBounds.width * 0.5,
+          cardBounds.top + cardBounds.height * 0.5,
+        ];
 
-      let ANGLE =
-        (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) *
-          180) /
-        Math.PI;
+        let angle =
+          (Math.atan2(event.clientY - cardCenter[1], event.clientX - cardCenter[0]) * 180) /
+          Math.PI;
 
-      ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
+        angle = angle < 0 ? angle + 360 : angle;
 
-      CARD.style.setProperty("--start", ANGLE + 90);
+        card.style.setProperty("--start", angle + 90);
 
-      if (
-        event?.x > CARD_BOUNDS.left - CONFIG.proximity &&
-        event?.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
-        event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
-        event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
-      ) {
-        CARD.style.setProperty("--active", 1);
-      } else {
-        CARD.style.setProperty("--active", CONFIG.opacity);
-      }
+        if (
+          event.clientX > cardBounds.left - CONFIG.proximity &&
+          event.clientX < cardBounds.right + CONFIG.proximity &&
+          event.clientY > cardBounds.top - CONFIG.proximity &&
+          event.clientY < cardBounds.bottom + CONFIG.proximity
+        ) {
+          card.style.setProperty("--active", "1");
+        } else {
+          card.style.setProperty("--active", CONFIG.opacity.toString());
+        }
+      });
     };
 
-    // Apply styles
-    CONTAINER.style.setProperty("--gap", CONFIG.gap);
-    CONTAINER.style.setProperty("--blur", CONFIG.blur);
-    CONTAINER.style.setProperty("--spread", CONFIG.spread);
-    CONTAINER.style.setProperty(
-      "--direction",
-      CONFIG.vertical ? "column" : "row"
-    );
-
-    window.addEventListener("pointermove", UPDATE);
+    containerRef.current.addEventListener("pointermove", handlePointerMove);
 
     return () => {
-      window.removeEventListener("pointermove", UPDATE);
+      containerRef.current?.removeEventListener("pointermove", handlePointerMove);
     };
-  }, [identifier]);
+  }, []);
 
   return (
-    <div ref={containerRef} className={`glow-container-${identifier} glow-container`}>
+    <div ref={containerRef} className={`glow-container glow-container-${identifier}`}>
       <article
-        ref={cardRef}
+        ref={(el) => cardRefs.current.push(el)}
         className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}
       >
         <div className="glows"></div>

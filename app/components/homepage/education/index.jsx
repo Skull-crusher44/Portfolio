@@ -1,21 +1,10 @@
-"use client";
-
 // @flow strict
 import { educations } from "@/utils/data/educations";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '../../../assets/lottie/study.json';
 import AnimationLottie from "../../helper/animation-lottie";
-import dynamic from 'next/dynamic';
-
-const GlowCard = dynamic(() => import("../../helper/glow-card"), {
-  ssr: false,
-  loading: () => (
-    <div className="border border-[#2a2e5a] bg-[#101123] text-gray-200 rounded-xl p-3">
-      Loading...
-    </div>
-  )
-});
+import GlowCard from "../../helper/glow-card";
 
 function Education() {
   return (
@@ -90,6 +79,6 @@ function Education() {
       </div>
     </div>
   );
-}
+};
 
 export default Education;

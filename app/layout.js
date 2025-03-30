@@ -6,7 +6,7 @@ import ToastWrapper from "./components/toast-wrapper";
 import "./css/card.scss";
 import "./css/globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   title: "Portfolio of Pankaj Ahuja - Software Developer",
