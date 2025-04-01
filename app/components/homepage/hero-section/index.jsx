@@ -28,7 +28,7 @@ function HeroSection() {
             Hello, <br />
             This is {' '}
             <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
+            {` , I'm a  `}
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .
           </h1>
@@ -136,15 +136,15 @@ function HeroSection() {
         <span className="text-gray-400">{"', '"}</span>
         <span className="text-amber-300">AI/ML</span>
         <span className="text-gray-400">{"', '"}</span>
-        <span className="text-amber-300">CUDA</span>
+        <span className="text-amber-300">Typescript</span>
         <span className="text-gray-400">{"', '"}</span>
-        <span className="text-amber-300">VLSI</span>
+        <span className="text-amber-300">Three.js</span>
         <span className="text-gray-400">{"', '"}</span>
-        <span className="text-amber-300">Network Security</span>
+        <span className="text-amber-300">OOPS</span>
         <span className="text-gray-400">{"', '"}</span>
-        <span className="text-amber-300">Compiler Design</span>
+        <span className="text-amber-300">DBMS</span>
         <span className="text-gray-400">{"', '"}</span>
-        <span className="text-amber-300">Mathematics</span>
+        <span className="text-amber-300">Operating System</span>
         <span className="text-gray-400">{"'],"}</span>
       </div>
       <div>
