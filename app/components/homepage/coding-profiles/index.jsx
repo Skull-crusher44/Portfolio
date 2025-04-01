@@ -15,7 +15,7 @@ const CodingProfiles = () => {
             className="flex items-center justify-center px-2 sm:px-3 md:px-4 py-2 rounded-full border border-transparent bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:opacity-80 transition-opacity duration-300 text-xs sm:text-sm md:text-base"
           >
             <Image
-              src={`/${profile.icon}`}
+              src={profile.icon}
               alt={profile.name}
               width={16}
               height={16}
