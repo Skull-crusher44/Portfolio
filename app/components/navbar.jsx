@@ -16,24 +16,52 @@ function Navbar() {
 
         <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">ABOUT</div>
+            <Link 
+              href="/#about"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              ABOUT
             </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EXPERIENCE</div></Link>
+            <Link 
+              href="/#experience"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              EXPERIENCE
+            </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">SKILLS</div></Link>
+            <Link 
+              href="/#skills"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              SKILLS
+            </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#education"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EDUCATION</div></Link>
+            <Link 
+              href="/#education"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              EDUCATION
+            </Link>
           </li>
+          {/* <li>
+            <Link 
+              href="/blog"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              BLOGS
+            </Link>
+          </li> */}
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/blog"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">BLOGS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">PROJECTS</div></Link>
+            <Link 
+              href="/#projects"
+              className="block px-4 py-2 text-sm text-white transition-colors duration-300 hover:text-pink-600 no-underline outline-none hover:no-underline"
+            >
+              PROJECTS
+            </Link>
           </li>
         </ul>
       </div>
